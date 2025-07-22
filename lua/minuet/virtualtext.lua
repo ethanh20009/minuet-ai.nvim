@@ -180,6 +180,12 @@ local function trigger(bufnr)
 
     local config = require('minuet').config
 
+    local disable_completion = config.virtualtext.disabled()
+    if disable_completion then
+        utils.notify('Completion disabled in configuration', 'warn')
+        return
+    end
+
     local context = utils.get_context(utils.make_cmp_context())
 
     local provider = require('minuet.backends.' .. config.provider)

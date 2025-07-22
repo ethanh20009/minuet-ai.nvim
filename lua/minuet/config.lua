@@ -197,6 +197,9 @@ local M = {
         -- Whether show virtual text suggestion when the completion menu
         -- (nvim-cmp or blink-cmp) is visible.
         show_on_completion_menu = false,
+        disabled = function()
+            return false
+        end,
     },
     provider = 'codestral',
     -- the maximum total characters of the context before and after the cursor
